@@ -22,7 +22,7 @@ Para llevar a cabo esta demostración se crearán tres máquinas virtuales con l
 
 Este despliegue se llevará a cabo en una máquina con 4 núcleos (2.7 GHz Intel Core i5) y 8 GB de RAM.
 
-La definición de estas máquinas se da en el siguiente [Vagrantfile](https://raw.githubusercontent.com/josanabr/computational_cluster/01-DefVMs/Vagrantfile).
+La definición de estas máquinas se da en el siguiente Vagrantfile.
 
 ```
 # -*- mode: ruby -*-
