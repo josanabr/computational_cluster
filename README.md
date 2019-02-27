@@ -74,7 +74,7 @@ Para destruir una máquina `vagrant destroy node2 -f`.
 # NFS
 
 NFS viene de *Network File System*. 
-Este es un servicio de red que permite a un computador (a.k.a. servidor) compartir una carpeta al cual este tenga acceso.
+Este es un servicio de red que permite a un computador (a.k.a. servidor) compartir una carpeta al cual este tenga acceso con otros computadores que lo puedan acceder a través de la red.
 
 Para instalar el servidor de NFS se requiere hacer una instalación en el servidor y otra en el cliente.
 A continuación mostraremos como llevar a cabo la instalación en el servidor.
