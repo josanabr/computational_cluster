@@ -13,6 +13,7 @@ Para llevar a cabo el despliegue de este sistema se hará uso de la herramienta 
 
 [NFS](#nfs)
 
+[Ganglia](#ganglia)
 
 ---
 
@@ -184,3 +185,10 @@ El archivo debería estar disponible también en `node1`.
 
 Desarrollo los scripts que correspondan para que la instalación de NFS se haga a la hora de levantar el cluster.
 Es decir, el usuario ejecutará `vagrant up` y deberá poder ejecutar lo que se encuentra en la sección de [validar instalación](#validando-instalacion).
+
+---
+
+# Ganglia
+
+Ganglia es una herramienta para el monitoreo de nodos computacionales. 
+A continuación se da una guía de como llevar a cabo el proceso de instalación de la herramienta.
