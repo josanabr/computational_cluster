@@ -10,6 +10,7 @@ En este repositorio se mostrará como se puede crear un cluster computacional qu
 Para llevar a cabo el despliegue de este sistema se hará uso de la herramienta de virtualización VirtualBox y de Vagrant como herramienta para el aprovisionamiento de sistemas operativos en máquinas virtuales.
 
 [Definición de máquinas virtuales](#definicion-de-maquinas-virtuales)
+
 [NFS](#nfs)
 
 
