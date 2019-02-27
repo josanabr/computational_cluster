@@ -161,5 +161,11 @@ Editar el archivo `/etc/fstab` y adicionar las siguientes líneas:
 
 ```
 10.11.13.3:/export/home  /home  nfs  auto  0  0
-10.11.13.3:/export/shared  /home  nfs  auto  0  0
+10.11.13.3:/export/shared  /shared  nfs  auto  0  0
+```
+
+### Montando directorios remotos
+
+```
+sudo mount -a
 ```
