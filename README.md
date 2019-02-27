@@ -179,3 +179,4 @@ ls -l /shared/demo
 ```
 
 El archivo debería estar disponible también en `node1`.
+
