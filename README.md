@@ -100,16 +100,36 @@ sudo apt-get update && sudo apt-get -y install nfs-kernel-server
 
 ### Creación del directorio a ser compartido
 
-```
-sudo mkdir -p /export/shared
-sudo chmod 777 /export && sudo chmod 777 /export/shared
-```
-
-### Exportando el directorio 
-
-Para exportar el directorio creado anteriormente se debe abrir el archivo `/etc/exports` y adicionar la siguiente línea
+Para este caso se van a compartir dos directorios `/export/home` y `/export/shared`.
+El directorio `/export/home` contendrá toda la información de los usuarios del cluster.
+El directorio `/export/shared` contendrá información general que se quiera compartir en el cluster.
 
 ```
-/export/shared *(rw,nohide,insecure,no_subtree_check_async)
+sudo mkdir -p /export/{shared,home}
+sudo chmod 777 /export && sudo chmod 777 /export/*
 ```
 
+### Enlazando el directorio `/export/home`
+
+Ahora se asociará el directorio `/home` del servidor de NFS con el directorio `/export/home`.
+
+```
+sudo mount --bind /home /export/home
+```
+
+Si usted lista el contenido del directorio `/home` y `/export/home` en el servidor de NFS usted verá la misma información.
+
+### Exportando directorios
+
+Para exportar los directorios creados anteriormente se deben adicionar las siguientes líneas al archivo `/etc/exports`:
+
+```
+/export/home *(rw,fsid=0,insecure,no_subtree_check,async)
+/export/shared *(rw,fsid=0,insecure,no_subtree_check,async)
+```
+
+### Reiniciando el servidor de NFS
+
+```
+sudo service nfs-kernel-server restart
+```
