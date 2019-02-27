@@ -12,6 +12,7 @@ Para llevar a cabo el despliegue de este sistema se hará uso de la herramienta 
 [Definición de máquinas virtuales](#definicion-de-maquinas-virtuales)
 [NFS](#nfs)
 
+
 ---
 
 # Definicion de maquinas virtuales
