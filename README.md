@@ -105,9 +105,9 @@ El directorio `/export/home` contendrá toda la información de los usuarios del
 El directorio `/export/shared` contendrá información general que se quiera compartir en el cluster.
 
 ```
-sudo mkdir -p /export/{shared,home}
+sudo mkdir -p /export/shared
 sudo mkdir /shared
-sudo chmod 777 /export && sudo chmod 777 /export/* && sudo chmod 777 /shared
+sudo chmod 777 /{export,shared} && sudo chmod 777 /export/*
 ```
 
 ### Enlazando directorios 
@@ -116,7 +116,6 @@ Ahora se asociará el directorio `/home` del servidor de NFS con el directorio `
 Se asociará el directorio `/shared` con el directorio `/export/shared` del servidor de NFS
 
 ```
-sudo mount --bind /home /export/home
 sudo mount --bind /shared /export/shared
 ```
 
@@ -127,7 +126,6 @@ Si usted lista el contenido del directorio `/home` y `/export/home` en el servid
 Para exportar los directorios creados anteriormente se deben adicionar las siguientes líneas al archivo `/etc/exports`:
 
 ```
-/export/home *(rw,fsid=0,insecure,no_subtree_check,async)
 /export/shared *(rw,fsid=0,insecure,no_subtree_check,async)
 ```
 
@@ -160,7 +158,6 @@ sudo chmod 777 /shared
 Editar el archivo `/etc/fstab` y adicionar las siguientes líneas:
 
 ```
-10.11.13.3:/export/home  /home  nfs  auto  0  0
 10.11.13.3:/export/shared  /shared  nfs  auto  0  0
 ```
 
