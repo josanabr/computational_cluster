@@ -10,6 +10,7 @@ En este repositorio se mostrará como se puede crear un cluster computacional qu
 Para llevar a cabo el despliegue de este sistema se hará uso de la herramienta de virtualización VirtualBox y de Vagrant como herramienta para el aprovisionamiento de sistemas operativos en máquinas virtuales.
 
 [Definición de máquinas virtuales](#definicion-de-maquinas-virtuales)
+[NFS](#nfs)
 
 ---
 
@@ -67,3 +68,46 @@ O se pueden gestionar cada una de las máquinas por sus nombres:
 Para crear una máquina en particular `vagrant up master`.
 Para acceder a una máquina en especial via `ssh`, `vagrant ssh node1`.
 Para destruir una máquina `vagrant destroy node2 -f`.
+
+---
+
+# NFS
+
+NFS viene de *Network File System*. 
+Este es un servicio de red que permite a un computador (a.k.a. servidor) compartir una carpeta al cual este tenga acceso.
+
+Para instalar el servidor de NFS se requiere hacer una instalación en el servidor y otra en el cliente.
+A continuación mostraremos como llevar a cabo la instalación en el servidor.
+
+## Servidor NFS
+
+Para llevar a cabo esta instalación usted debe conectarse al servidor. 
+Si usted utilizó el `Vagrantfile` de este repositorio usted se podrá conectar al servidor de NFS usando el siguiente comando.
+
+```
+vagrant ssh master
+```
+
+Estando en este servidor se ejecutarán los siguientes pasos.
+
+### Instalación del servidor de NFS
+
+```
+sudo apt-get update && sudo apt-get -y install nfs-kernel-server
+```
+
+### Creación del directorio a ser compartido
+
+```
+sudo mkdir -p /export/shared
+sudo chmod 777 /export && sudo chmod 777 /export/shared
+```
+
+### Exportando el directorio 
+
+Para exportar el directorio creado anteriormente se debe abrir el archivo `/etc/exports` y adicionar la siguiente línea
+
+```
+/export/shared *(rw,nohide,insecure,no_subtree_check_async)
+```
+
