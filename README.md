@@ -106,15 +106,18 @@ El directorio `/export/shared` contendrá información general que se quiera com
 
 ```
 sudo mkdir -p /export/{shared,home}
-sudo chmod 777 /export && sudo chmod 777 /export/*
+sudo mkdir /shared
+sudo chmod 777 /export && sudo chmod 777 /export/* && sudo chmod 777 /shared
 ```
 
-### Enlazando el directorio `/export/home`
+### Enlazando directorios 
 
 Ahora se asociará el directorio `/home` del servidor de NFS con el directorio `/export/home`.
+Se asociará el directorio `/shared` con el directorio `/export/shared` del servidor de NFS
 
 ```
 sudo mount --bind /home /export/home
+sudo mount --bind /shared /export/shared
 ```
 
 Si usted lista el contenido del directorio `/home` y `/export/home` en el servidor de NFS usted verá la misma información.
@@ -132,4 +135,31 @@ Para exportar los directorios creados anteriormente se deben adicionar las sigui
 
 ```
 sudo service nfs-kernel-server restart
+```
+
+## Cliente NFS
+
+Para cada uno de los nodos del cluster (`node1` y `node2`) llevar a cabo los siguientes pasos.
+
+### Instalación de software 
+
+```
+sudo apt-get update && sudo apt-get install -y nfs-common
+```
+
+### Creación de directorio 
+
+```
+sudo mkdir /shared
+sudo chmod 777 /shared
+```
+
+
+### Configurando el archivo `/etc/fstab`
+
+Editar el archivo `/etc/fstab` y adicionar las siguientes líneas:
+
+```
+10.11.13.3:/export/home  /home  nfs  auto  0  0
+10.11.13.3:/export/shared  /home  nfs  auto  0  0
 ```
