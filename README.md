@@ -9,7 +9,7 @@ En este repositorio se mostrará como se puede crear un cluster computacional qu
 
 Para llevar a cabo el despliegue de este sistema se hará uso de la herramienta de virtualización VirtualBox y de Vagrant como herramienta para el aprovisionamiento de sistemas operativos en máquinas virtuales.
 
-A continuación se crearán las máquinas virtuales de nuestro cluster computacional.
+[Definición de máquinas virtuales](#definicion-de-maquinas-virtuales)
 
 ---
 
@@ -22,7 +22,7 @@ Para llevar a cabo esta demostración se crearán tres máquinas virtuales con l
 
 Este despliegue se llevará a cabo en una máquina con 4 núcleos (2.7 GHz Intel Core i5) y 8 GB de RAM.
 
-La definición de estas máquinas se da en el siguiente Vagrantfile.
+La definición de estas máquinas se da en el siguiente [Vagrantfile](https://raw.githubusercontent.com/josanabr/computational_cluster/01-DefVMs/Vagrantfile).
 
 ```
 # -*- mode: ruby -*-
