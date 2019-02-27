@@ -163,7 +163,7 @@ Editar el archivo `/etc/fstab` y adicionar las siguientes líneas:
 sudo mount -a
 ```
 
-## Validando instalación
+## Validando instalacion
 
 Ingresar al `master` y ejecutar el siguiente comando:
 
@@ -183,4 +183,4 @@ El archivo debería estar disponible también en `node1`.
 ## Hágalo usted mismo
 
 Desarrollo los scripts que correspondan para que la instalación de NFS se haga a la hora de levantar el cluster.
-Es decir, el usuario ejecutará `vagrant up` y deberá poder ejecutar lo que se encuentra en la sección de [validar instalación](#validando-instalacion)
+Es decir, el usuario ejecutará `vagrant up` y deberá poder ejecutar lo que se encuentra en la sección de [validar instalación](#validando-instalacion).
